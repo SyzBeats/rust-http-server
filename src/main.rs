@@ -1,15 +1,7 @@
 fn main() {
-
-    let string = String::from("127.0.0.1:8080");
-
-    // just give all the chars starting from 10. position
-    let string_slice = &string[10..];
-    
-    dbg!(string);
-    dbg!(string_slice);
     // new is an associated function
-    // let server = Server::new("127.0.0.1:8080");
-    // server.run();
+    let server = Server::new("127.0.0.1:8080".to_string());
+    server.run();
 }
 
 // values of struct are polaces next to each other in memory
@@ -34,6 +26,6 @@ impl Server {
     // run takes ownership of the entire struct.
     // it will be deallocated when run exits
     fn run(self) {
-
+        println!("listening on {}", self.address)
     }
 }
